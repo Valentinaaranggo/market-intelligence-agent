@@ -1,0 +1,5 @@
+sqlalchemy
+psycopg2-binary
+antropic
+python-dotenv
+pandas
