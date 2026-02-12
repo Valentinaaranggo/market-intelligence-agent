@@ -1,39 +1,57 @@
 import yfinance as yf
 
-# Get just 5 days of data (small and manageable)
+
 apple = yf.Ticker("AAPL")
-history = apple.history(period="5d")
 
-print("="*60)
-print("WHAT IS THE DATAFRAME?")
-print("="*60)
-print(history)
-print()
+# print(dir(apple))
+# print("\n")
 
-print("="*60)
-print("LOOPING THROUGH WITH ITERROWS")
-print("="*60)
+# Financial data is available through these attributes:
+# print(apple.quarterly_financials)  # Quarterly income statement
+# print("\n")
+# print(apple.financials)            # Annual income statement
+# print(apple.financials.head)
+print(apple.quarterly_financials)
+print(apple.quarterly_financials.shape)
+print(apple.quarterly_financials.index)    # What are the rows?
+print(apple.quarterly_financials.columns)  # What are the columns?
 
-for index, row in history.iterrows():
-    print("\n--- NEW ROW ---")
-    
-    print("\nINDEX (the date):")
-    print(f"  Type: {type(index)}")
-    print(f"  Value: {index}")
-    print(f"  As date only: {index.date()}")
-    
-    print("\nROW (all the data for that day):")
-    print(f"  Type: {type(row)}")
-    print(f"  Full row:\n{row}")
-    
-    print("\nEXTRACTING VALUES:")
-    print(f"  Close price: ${row['Close']:.2f}")
-    print(f"  Volume: {row['Volume']:,}")
-    
-    # Only show first row, then stop
-    break
 
-print("\n" + "="*60)
+
+# # Get just 5 days of data (small and manageable)
+# apple = yf.Ticker("AAPL")
+# history = apple.history(period="5d")
+
+# print("="*60)
+# print("WHAT IS THE DATAFRAME?")
+# print("="*60)
+# print(history)
+# print()
+
+# print("="*60)
+# print("LOOPING THROUGH WITH ITERROWS")
+# print("="*60)
+
+# for index, row in history.iterrows():
+#     print("\n--- NEW ROW ---")
+    
+#     print("\nINDEX (the date):")
+#     print(f"  Type: {type(index)}")
+#     print(f"  Value: {index}")
+#     print(f"  As date only: {index.date()}")
+    
+#     print("\nROW (all the data for that day):")
+#     print(f"  Type: {type(row)}")
+#     print(f"  Full row:\n{row}")
+    
+#     print("\nEXTRACTING VALUES:")
+#     print(f"  Close price: ${row['Close']:.2f}")
+#     print(f"  Volume: {row['Volume']:,}")
+    
+#     # Only show first row, then stop
+#     break
+
+# print("\n" + "="*60)
 # import json
 
 # print(dir(yf))
